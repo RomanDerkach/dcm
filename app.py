@@ -1,6 +1,8 @@
 """application file."""
+import os
 from flask import Flask, render_template
-app = Flask(__name__, template_folder='/home/roman/Desktop/web/dcm/templates')
+
+app = Flask(__name__, template_folder=os.environ['PRODROOT'] + '/templates')
 
 
 @app.route("/")
