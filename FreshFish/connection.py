@@ -1,6 +1,6 @@
-"""This code connects to docker daemon."""
-
 from docker import Client
 cli = Client(base_url='unix://var/run/docker.sock', version='auto')
 
-print cli.containers()
+
+def get_images():
+    print cli.containers()
