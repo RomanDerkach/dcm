@@ -1,13 +1,13 @@
 """application file."""
-import os
 from flask import Flask, render_template
-
-app = Flask(__name__, template_folder=os.environ['PRODROOT'] + '/templates')
+from connection import get_images
+app = Flask(__name__, template_folder='templates/')
 
 
 @app.route("/")
 def hello():
     """That the first."""
+    get_images()
     return render_template('index.html')
 
 if __name__ == "__main__":
