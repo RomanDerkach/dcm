@@ -1,39 +1,46 @@
 <html lang="en" >
    <head>
-      <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
-      <script type="text/javascript">
-         angular.module('FreshFish', ['ngMaterial']);
-      </script>
-      <script src="/static/js/app.js"></script>
+    <!-- LIBS -->
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+    <!-- JS code -->
+        <script src="/static/js/app.js"></script>
+        <script src="/static/js/MainCtrl.js"></script>
    </head>
-   <body ng-app="FreshFish" ng-cloak>
-        <md-toolbar class="md-warn">
+   <body ng-app="app" ng-cloak>
+
+        <md-toolbar md-theme="customTheme" class="md-primary md-hue-2">
          <div class="md-toolbar-tools">
-            <h2 class="md-flex">HTML 5</h2>
+            <md-card-header>
+                <md-card-avatar>
+                    <img src="/static/img/docker-icon.png" class="md-user-avatar" style="height: 100%">
+                </md-card-avatar>
+                <md-card-header-text>
+                    <span class="md-title">FreshFish</span>
+                </md-card-header-text>
+            </md-card-header>
          </div>
         </md-toolbar>
-        <md-tabs class="md-accent" md-stretch-tabs="always">
-          <md-tab id="tab1">
-            <md-tab-label>Item One</md-tab-label>
-          </md-tab>
-          <md-tab id="tab2">
-            <md-tab-label>Item Two</md-tab-label>
-          </md-tab>
-          <md-tab id="tab3">
-            <md-tab-label>Item Three</md-tab-label>
-          </md-tab>
-        </md-tabs>
-        <md-content flex layout-padding>
-         <p>HTML5 is the next major revision of the HTML standard superseding HTML 4.01, XHTML 1.0, and XHTML 1.1. HTML5 is a standard for structuring and presenting content on the World Wide Web.</p>
-         <p>HTML5 is a cooperation between the World Wide Web Consortium (W3C) and the Web Hypertext Application Technology Working Group (WHATWG).</p>
-         <p>The new standard incorporates features like video playback and drag-and-drop that have been previously dependent on third-party     browser plug-ins such as Adobe Flash, Microsoft Silverlight, and Google Gears.</p>
-        </md-content>
+        <div ng-controller="MainCtrl" md-theme="customTheme">
+            <md-tabs class="md-primary md-hue" md-selected="selectedIndex" md-stretch-tabs="always">
+                <md-tab id="images">
+                    <md-tab-label>Images</md-tab-label>
+                </md-tab>
+                <md-tab id="containers">
+                    <md-tab-label>Running containers</md-tab-label>
+                </md-tab>
+            </md-tabs>
+        <!-- CONTANT  -->
+        <div ui-view flex></div>
 
+        </div>
    </body>
 </html>
 

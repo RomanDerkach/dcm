@@ -1,19 +1,22 @@
 'use strict';   // See note about 'use strict'; below
 
-var myApp = angular.module('myApp', [
- 'ngRoute',
+var app = angular.module('app', [
+    'ngMaterial', 'ui.router'
 ]);
 
-myApp.config(['$routeProvider',
-     function($routeProvider) {
-         $routeProvider.
-             when('/', {
-                 templateUrl: '/static/partials/home.html',
-             }).
-             when('/about', {
-                 templateUrl: '/static/partials/about.html',
-             }).
-             otherwise({
-                 redirectTo: '/'
-             });
-    }]);
+app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider) {
+        $mdThemingProvider.theme('customTheme')
+                  .primaryPalette('blue-grey')
+                  .accentPalette('orange')
+                  .warnPalette('red');
+        $urlRouterProvider.otherwise('/tab/dash');
+        $stateProvider
+        .state('containers', {
+            url: "/containers",
+            templateUrl: "/static/partials/404.html"
+        })
+        .state('images', {
+            url: "/images",
+            templateUrl: "/static/partials/images.html"
+        });
+    })
