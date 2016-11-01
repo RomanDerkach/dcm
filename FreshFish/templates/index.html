@@ -1,18 +1,26 @@
 <html lang="en" >
    <head>
-    <!-- LIBS -->
+        <link rel="shortcut icon" href="/static/img/docker.svg">
+        <title>FreshFish</title>
+
+        <!-- LIBS -->
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
-    <!-- JS code -->
+
+        <!-- JS code -->
         <script src="/static/js/app.js"></script>
         <script src="/static/js/MainCtrl.js"></script>
+        <script src="/static/js/ImagesCtrl.js"></script>
    </head>
    <body ng-app="app" ng-cloak>
 
@@ -20,7 +28,7 @@
          <div class="md-toolbar-tools">
             <md-card-header>
                 <md-card-avatar>
-                    <img src="/static/img/docker-icon.png" class="md-user-avatar" style="height: 100%">
+                    <md-icon md-svg-src="/static/img/icon-docker.svg"></md-icon>
                 </md-card-avatar>
                 <md-card-header-text>
                     <span class="md-title">FreshFish</span>
@@ -38,7 +46,7 @@
                 </md-tab>
             </md-tabs>
         <!-- CONTANT  -->
-        <div ui-view flex></div>
+        <div ui-view></div>
 
         </div>
    </body>
