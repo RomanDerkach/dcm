@@ -1,11 +1,10 @@
 """This module holds all views controls for...
 
-ecomap project.
+FreshFishproject.
 """
-
+import connection
 from app import app
-from connection import get_images
-from flask import render_template, jsonify
+from flask import render_template, jsonify, request
 
 
 @app.route("/")
@@ -17,9 +16,29 @@ def index():
 @app.route("/api/all_images")
 def all_images():
     """Funcion return list of images in the system."""
-    local_images = get_images()
-    responce = jsonify(local_images)
+    local_images = connection.get_images()
+    responce = jsonify(local_images), 200
     return responce
+
+
+@app.route("/api/run_container", methods=['POST'])
+def run_container():
+    """Function get image name from request and run container."""
+    data = request.get_json()
+    connection.run_container(data.get('image_name_tag'))
+    responce = jsonify(), 200
+    return responce
+
+
+@app.route("/api/del_image", methods=['DELETE'])
+def del_image():
+    """Function will delete image by it`s name."""
+    data = request.get_json(force=True)
+    print type(data)
+    connection.del_image(data.get('image_name_tag'))
+    responce = jsonify(), 200
+    return responce
+
 
 if __name__ == '__main__':
     app.run()

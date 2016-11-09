@@ -5,16 +5,15 @@
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline">{{image.RepoTags[0]}}</span>
-                        <span class="md-subhead">Small</span>
                     </md-card-title-text>
                 </md-card-title>
             </div>
             <div>
                 <md-card-actions layout="row" layout-align="end center">
-                    <md-button>
+                    <md-button ng-click="RunContainer(image.RepoTags[0])">
                         <i class="material-icons">play_arrow</i>
                     </md-button>
-                    <md-button>
+                    <md-button ng-click="DeleteImage(image.RepoTags[0])">
                         <i class="material-icons">delete_forever</i>
                     </md-button>
                 </md-card-actions>
