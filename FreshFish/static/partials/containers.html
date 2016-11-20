@@ -1,3 +1,27 @@
-<md-content flex layout-padding>
-         <h1>OOOOOOOOOOOOOOOoo</h1>
-</md-content>
+<div ng-controller="ContainersCtrl" layout-align="space-around" layout="row"  layout-wrap>
+    <md-content ng-repeat="container in containers" flex="25">
+        <md-card md-theme="customTheme" class="md-primary md-hue-1">
+            <div>
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Name : {{container.Names[0]}}</span>
+                        <span class="md-subhead">Image name : {{container.Image}}</span>
+                        <span class="md-subhead">State : {{container.State}}</span>
+                        <span class="md-subhead">Status : {{container.Status}}</span>
+                        <span class="md-subhead">Created : {{container.Created | date:'dd/MM/yyyy HH:mm'}}</span>
+                    </md-card-title-text>
+                </md-card-title>
+            </div>
+            <div>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button ng-click="RunContainer(container.RepoTags[0])">
+                        <i class="material-icons">play_arrow</i>
+                    </md-button>
+                    <md-button ng-click="DeleteImage(container.RepoTags[0])">
+                        <i class="material-icons">delete_forever</i>
+                    </md-button>
+                </md-card-actions>
+            </div>
+        </md-card>
+    </md-content>
+</div>

@@ -23,5 +23,12 @@ def del_image(image_name_tag):
     """Delete image by its image_name_tag."""
     cli.remove_image(image_name_tag, True)
 
+
+def get_containers():
+    """Get all the containers that are running or not."""
+    return cli.containers(all=True)
+
 if __name__ == '__main__':
-    print get_images()
+    print get_containers()[0]
+    for key, value in get_containers()[0].iteritems():
+        print str(key) + " : " + str(value)

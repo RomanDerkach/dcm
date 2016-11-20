@@ -13,7 +13,7 @@ app.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider) {
         $stateProvider
         .state('containers', {
             url: "/containers",
-            templateUrl: "/static/partials/404.html"
+            templateUrl: "/static/partials/containers.html"
         })
         .state('images', {
             url: "/images",
