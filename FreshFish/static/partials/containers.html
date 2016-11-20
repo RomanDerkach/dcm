@@ -8,7 +8,7 @@
                         <span class="md-subhead">Image name : {{container.Image}}</span>
                         <span class="md-subhead">State : {{container.State}}</span>
                         <span class="md-subhead">Status : {{container.Status}}</span>
-                        <span class="md-subhead">Created : {{container.Created | date:'dd/MM/yyyy HH:mm'}}</span>
+                        <span class="md-subhead">Created : {{container.Created * 1000 | date:'dd/MM/yyyy HH:mm'}}</span>
                     </md-card-title-text>
                 </md-card-title>
             </div>
