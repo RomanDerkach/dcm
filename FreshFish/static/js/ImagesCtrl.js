@@ -20,7 +20,6 @@ app.controller('ImagesCtrl', ['$scope', '$http',
                 url: '/api/run_container',
                 data: {'image_name_tag': image_name_tag}
                 }).then(function successCallback(response){
-                    console.log(image_name_tag)
             });
         };
 

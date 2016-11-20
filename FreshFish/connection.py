@@ -16,7 +16,7 @@ def run_container(image_name_tag):
                                      detach=True, stdin_open=True,
                                      ports=[80],
                                      host_config=host_config)
-    cli.start(container)
+    start_container(container)
 
 
 def del_image(image_name_tag):
@@ -28,7 +28,30 @@ def get_containers():
     """Get all the containers that are running or not."""
     return cli.containers(all=True)
 
+
+def start_container(container):
+    """Run stoped container."""
+    cli.start(container)
+
+
+def stop_container(container):
+    """Stop running container."""
+    cli.kill(container)
+
+
+def del_container(container):
+    """Delete the container."""
+    cli.remove_container(container, force=True)
+
+
+def kill_container(container):
+    """Kill the running container."""
+    cli.kill(container)
+
+
+def restart_container(container):
+    """Restart container."""
+    cli.restart(container)
+
 if __name__ == '__main__':
-    print get_containers()[0]
-    for key, value in get_containers()[0].iteritems():
-        print str(key) + " : " + str(value)
+    del_container('7cd8acd0aad9')

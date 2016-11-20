@@ -48,5 +48,49 @@ def all_containers():
     return responce
 
 
+@app.route("/api/start_container", methods=['POST'])
+def start_container():
+    """Start the container that was stopped."""
+    data = request.get_json()
+    connection.start_container(data.get("container_id"))
+    responce = jsonify(), 200
+    return responce
+
+
+@app.route("/api/stop_container", methods=['POST'])
+def stop_container():
+    """Stop container."""
+    data = request.get_json()
+    connection.stop_container(data.get("container_id"))
+    responce = jsonify(), 200
+    return responce
+
+
+@app.route("/api/restart_container", methods=['POST'])
+def restart_container():
+    """Stop container."""
+    data = request.get_json()
+    connection.restart_container(data.get("container_id"))
+    responce = jsonify(), 200
+    return responce
+
+
+@app.route("/api/del_container", methods=['DELETE'])
+def del_container():
+    """Function will delete container by it`s name."""
+    data = request.get_json(force=True)
+    connection.del_container(data.get('container_id'))
+    responce = jsonify(), 200
+    return responce
+
+
+@app.route("/api/kill_container", methods=['POST'])
+def kill_container():
+    """Function will delete container by it`s name."""
+    data = request.get_json()
+    connection.kill_container(data.get('container_id'))
+    responce = jsonify(), 200
+    return responce
+
 if __name__ == '__main__':
     app.run()

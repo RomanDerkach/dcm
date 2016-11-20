@@ -1,27 +1,33 @@
 <div ng-controller="ContainersCtrl" layout-align="space-around" layout="row"  layout-wrap>
     <md-content ng-repeat="container in containers" flex="25">
         <md-card md-theme="customTheme" class="md-primary md-hue-1">
-            <div>
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">Name : {{container.Names[0]}}</span>
-                        <span class="md-subhead">Image name : {{container.Image}}</span>
-                        <span class="md-subhead">State : {{container.State}}</span>
-                        <span class="md-subhead">Status : {{container.Status}}</span>
-                        <span class="md-subhead">Created : {{container.Created * 1000 | date:'dd/MM/yyyy HH:mm'}}</span>
-                    </md-card-title-text>
-                </md-card-title>
-            </div>
-            <div>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button ng-click="RunContainer(container.RepoTags[0])">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Name : {{container.Names[0]}}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content layout="row" layout-align="space-between">
+                <div>
+                    <div class="md-subhead">Image name : <b>{{container.Image}}</b></div>
+                    <div class="md-subhead">State : <b>{{container.State}}</b></div>
+                    <div class="md-subhead">Status : <b>{{container.Status}}</b></div>
+                    <div class="md-subhead">Created : <b>{{container.Created * 1000 | date:'dd/MM/yyyy HH:mm'}}</b></div>
+                </div>
+                <md-card-actions layout="column">
+                    <md-button ng-click="StartContainer(container.Id)">
                         <i class="material-icons">play_arrow</i>
                     </md-button>
-                    <md-button ng-click="DeleteImage(container.RepoTags[0])">
+                    <md-button ng-click="StopContainer(container.Id)">
+                        <i class="material-icons">stop</i>
+                    </md-button>
+                    <md-button ng-click="RestartContainer(container.Id)">
+                        <i class="material-icons">autorenew</i>
+                    </md-button>
+                    <md-button ng-click="DeleteContainer(container.Id)">
                         <i class="material-icons">delete_forever</i>
                     </md-button>
                 </md-card-actions>
-            </div>
+            </md-card-content>
         </md-card>
     </md-content>
 </div>

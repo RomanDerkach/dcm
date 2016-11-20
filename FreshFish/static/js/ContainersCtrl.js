@@ -14,5 +14,55 @@ app.controller('ContainersCtrl', ['$scope', '$http',
         };
         $scope.LoadContainers();
 
+        $scope.StartContainer = function(container_id){
+            $http({
+                method: 'POST',
+                url: '/api/start_container',
+                data: {'container_id': container_id}
+                }).then(function successCallback(response){
+                    $scope.LoadContainers();
+                }, function errorCallback(response) {
+
+                });
+        };
+
+        $scope.StopContainer = function(container_id){
+            $http({
+                method: 'POST',
+                url: '/api/stop_container',
+                data: {'container_id': container_id}
+                }).then(function successCallback(response){
+                    $scope.LoadContainers();
+                }, function errorCallback(response) {
+
+                });
+        };
+
+        $scope.RestartContainer = function(container_id){
+            $http({
+                method: 'POST',
+                url: '/api/restart_container',
+                data: {'container_id': container_id}
+                }).then(function successCallback(response){
+                    $scope.LoadContainers();
+                }, function errorCallback(response) {
+
+                });
+        };
+
+        $scope.DeleteContainer = function(container_id){
+            $http({
+                method: 'DELETE',
+                url: '/api/del_container',
+                data: {'container_id': container_id}
+                }).then(function successCallback(response){
+                    $scope.LoadContainers();
+                }, function errorCallback(response) {
+
+                });
+        };
+
+
+
     }
 ]);
